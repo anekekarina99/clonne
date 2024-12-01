@@ -12,6 +12,7 @@ return [
     | other UI elements where an application name needs to be displayed.
     |
     */
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -24,6 +25,7 @@ return [
     | services the application utilizes. Set this in your ".env" file.
     |
     */
+
     'env' => env('APP_ENV', 'production'),
 
     /*
@@ -36,6 +38,7 @@ return [
     | application. If disabled, a simple generic error page is shown.
     |
     */
+
     'debug' => (bool) env('APP_DEBUG', false),
 
     /*
@@ -48,6 +51,7 @@ return [
     | the application so that it's available within Artisan commands.
     |
     */
+
     'url' => env('APP_URL', 'http://localhost'),
 
     /*
@@ -60,6 +64,7 @@ return [
     | is set to "UTC" by default as it is suitable for most use cases.
     |
     */
+
     'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
@@ -72,8 +77,11 @@ return [
     | set to any locale for which you plan to have translation strings.
     |
     */
+
     'locale' => env('APP_LOCALE', 'en'),
+
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
 
     /*
@@ -86,11 +94,16 @@ return [
     | are secure. You should do this prior to deploying the application.
     |
     */
+
     'cipher' => 'AES-256-CBC',
+
     'key' => env('APP_KEY'),
-    'previous_keys' => array_filter(
-        explode(',', env('APP_PREVIOUS_KEYS', ''))
-    ),
+
+    'previous_keys' => [
+        ...array_filter(
+            explode(',', env('APP_PREVIOUS_KEYS', ''))
+        ),
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -104,46 +117,10 @@ return [
     | Supported drivers: "file", "cache"
     |
     */
+
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
-    |--------------------------------------------------------------------------
-    |
-    | The service providers listed here will be automatically loaded on the
-    | request to your application. Feel free to add your own services to
-    | this array to grant expanded functionality to your applications.
-    |
-    */
-    'providers' => [
-        /*
-         * Package Service Providers...
-         */
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-
-        /*
-         * Application Service Providers...
-         */
-        
-        // Add other providers here...
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Class Aliases
-    |--------------------------------------------------------------------------
-    |
-    | This array of class aliases will be registered when this application
-    | is started. However, feel free to register as many as you wish as the
-    | aliases are "lazy" loaded so they don't hinder performance.
-    |
-    */
-    'aliases' => [
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];
